@@ -1,6 +1,6 @@
 /**
- * function takes an array containing expression 
- * @param {*} arr computes the array and returns it
+ * function takes an array containing expression evaluate it and then return the array conatining the result of the evaluated expression.
+ * @param {*} arr is a String that contains numbers as well as '+' and '-' symbol.
  * @returns a computed or evaluated expression
  */
 function compute(arr){
@@ -8,7 +8,8 @@ function compute(arr){
     let operatorSt=[]
     let result=[]
     for(let a of arr){
-        if(a=='0'||a=='1'||a=='2'||a=='3'||a=='4'||a=='5'||a=='6'||a=='7'||a=='8'||a=='9'){
+        let i=parseInt(a)
+        if(i>0||i<=9){
             operandSt.push(a)
         }
         else{
@@ -38,18 +39,19 @@ function compute(arr){
         return operandSt
 }
 /**
- * Function takes a string
+ * Function takes a string extracts the expressions out of it and then replaces the expression with the computed expression.
  * @param {*} str is a string
  * @returns a string whose expressions will be evaluated
  */
-export function expression(str){
+export function evaluateExpression(str){
     let arrString=str.split(" ")
     let expr=[]
     // console.log(arrString)
     for(let i=0;i<arrString.length;i++){
         let flag=false
         for(let a of arrString[i]){
-            if(a=='1'||a=='2'||a=='3'||a=='4'||a=='5'||a=='6'||a=='7'||a=='8'||a=='9'||a=='+'||a=='-')
+            let intA=parseInt(a)
+            if(intA>0&&intA<=9||a==='+'||a==='-')
             {
               flag=true 
             }
